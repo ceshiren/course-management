@@ -1,0 +1,50 @@
+[2022-05-07 17:48:00] [INFO] [course.py]/[line: 28]/[get_course] 接收到的参数: None 
+[2022-05-08 08:53:44] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 08:53:44] [INFO] [server.py]/[line: 36]/[get_course] 查询所有数据===>[<CourseModel 1>] 
+[2022-05-08 08:54:55] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 08:56:32] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 08:56:45] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 09:07:56] [INFO] [server.py]/[line: 18]/[get_course] 接收到的参数: None 
+[2022-05-08 09:08:11] [INFO] [server.py]/[line: 18]/[get_course] 接收到的参数: None 
+[2022-05-08 09:12:02] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:12:45] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 1 
+[2022-05-08 09:13:47] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:15:23] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:19:37] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:20:05] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:20:13] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 1 
+[2022-05-08 09:20:22] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:20:34] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 1 
+[2022-05-08 09:21:26] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:35:23] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:37:42] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:37:50] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:39:45] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:40:25] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:41:30] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:45:36] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:48:19] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:48:48] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:48:59] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:49:07] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:50:04] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 1 
+[2022-05-08 09:52:12] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:53:54] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:54:59] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:55:12] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: None 
+[2022-05-08 09:55:16] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 1 
+[2022-05-08 09:56:37] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 2 
+[2022-05-08 09:56:42] [INFO] [server.py]/[line: 22]/[get_course] 接收到的参数: 7 
+[2022-05-08 12:35:56] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 12:35:56] [INFO] [server.py]/[line: 39]/[get_course] 查询所有数据===>[<CourseModel 1>, <CourseModel 2>, <CourseModel 3>, <CourseModel 4>, <CourseModel 5>] 
+[2022-05-08 12:35:58] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: None 
+[2022-05-08 12:35:58] [INFO] [server.py]/[line: 39]/[get_course] 查询所有数据===>[<CourseModel 1>, <CourseModel 2>, <CourseModel 3>, <CourseModel 4>, <CourseModel 5>] 
+[2022-05-08 12:36:04] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: 7 
+[2022-05-08 12:36:09] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: 6 
+[2022-05-08 12:36:13] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: 3 
+[2022-05-08 12:37:59] [INFO] [server.py]/[line: 26]/[get_course] 接收到的参数: 5 
+[2022-05-08 12:49:31] [INFO] [server.py]/[line: 62]/[post_course] 接收到的参数======> None 
+[2022-05-08 12:51:14] [INFO] [server.py]/[line: 62]/[post_course] 接收到的参数======> {'name': '测开26期', 'desc': 'python 高级课程'} 
+[2022-05-08 12:51:14] [DEBUG] [course.py]/[line: 41]/[create] 创建的课程 ID 为-->6 
+[2022-05-08 12:51:17] [INFO] [server.py]/[line: 62]/[post_course] 接收到的参数======> {'name': '测开26期', 'desc': 'python 高级课程'} 
+[2022-05-08 12:51:17] [DEBUG] [course.py]/[line: 41]/[create] 创建的课程 ID 为-->7 
