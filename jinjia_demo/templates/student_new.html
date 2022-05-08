@@ -35,7 +35,11 @@ active
                     <tr>
                         <td>{{ s['stu_id'] }}</td>
                         <td>{{ s['stu_name'] }}</td>
-                        <td>{{ s['selectd_courses'] }}</td>
+                        <td>
+                        {% for c in s['selectd_courses'] %}
+                           {{ c['course_name'] }} |
+                        {% endfor %}
+                        </td>
                         <td>
                             <button
                                     type="button"

@@ -67,9 +67,9 @@ function editCourse(){
         async:false,
         contentType:"application/json;charset=utf-8",
         data: JSON.stringify({
-            "course_id": courseId,
-            "course_name": courseName,
-            "course_desc": courseDesc
+            "id": courseId,
+            "name": courseName,
+            "desc": courseDesc
         }),
         success:function(message){
             if (message.code == 0){

@@ -58,9 +58,9 @@
                     <tbody>
                         {% for c in course_list %}
                         <tr>
-                            <td>{{ c['course_id'] }}</td>
-                            <td>{{ c['course_name'] }}</td>
-                            <td>{{ c['course_desc'] }}</td>
+                            <td>{{ c['id'] }}</td>
+                            <td>{{ c['name'] }}</td>
+                            <td>{{ c['desc'] }}</td>
                             <td>
                                 <button
                                         type="button"
@@ -72,7 +72,7 @@
                                 <button
                                         type="button"
                                         class="btn btn-xs btn-danger"
-                                        onclick="delCourse({{ c['course_id'] }})"
+                                        onclick="delCourse({{ c['id'] }})"
                                 >
                                     删除
                                 </button>
@@ -95,10 +95,10 @@ function addCourse(){
 
 function updateCourse(course_info){
     console.log("updateCourse")
-    console.log(course_info['course_id'])
-    console.log(course_info['course_name'])
-    console.log(course_info['course_desc'])
-    location.href="editCourse/" + course_info['course_id'] + "/" + course_info['course_name']+ "/" + course_info['course_desc']
+    console.log(course_info['id'])
+    console.log(course_info['name'])
+    console.log(course_info['desc'])
+    location.href="editCourse/" + course_info['id'] + "/" + course_info['name']+ "/" + course_info['desc']
 };
 
 function delCourse(course_id){
@@ -114,7 +114,7 @@ function delCourse(course_id){
             async:false,
             contentType:"application/json;charset=utf-8",
             data: JSON.stringify({
-                "course_id": course_id
+                "id": course_id
             }),
             success:function(message){
                 if (message.code == 0){
