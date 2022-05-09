@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程管理系统<</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{url_for('get_course')}}">课程管理系统</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{url_for('get_course')}}">课程管理</a></li>
+                    <li><a href="{{url_for('get_student')}}">学员管理</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <h2>编辑课程</h2>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="course_id" class="col-sm-2 control-label">课程 ID</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="course_id" name="course_id"
+                       placeholder="{{ course_id }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="course_name" class="col-sm-2 control-label">课程名称</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="course_name" name="course_name"
+                       placeholder="{{ course_name }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="course_desc" class="col-sm-2 control-label">课程说明</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="course_desc" name="course_desc"
+                       placeholder="{{ course_desc }}">
+            </div>
+        </div>
+    </form>
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-sm btn-success" onclick="editCourse()">更新</button>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+function editCourse(){
+    console.log("edit")
+
+    var courseId = document.getElementsByName("course_id")[0].value
+    if (courseId == "") {
+        var courseId = document.getElementsByName("course_id")[0].placeholder;
+    }
+    console.log(courseId)
+    var courseName = document.getElementsByName("course_name")[0].value
+    if (courseName == "") {
+        var courseName = document.getElementsByName("course_name")[0].placeholder
+    }
+    console.log(courseName)
+    var courseDesc = document.getElementsByName("course_desc")[0].value
+    if (courseDesc == "") {
+        var courseDesc = document.getElementsByName("course_desc")[0].placeholder
+    }
+    console.log(courseDesc)
+
+    $.ajax({
+        url:"/courses",
+        type:"PUT",
+        dataType:"json",
+        async:false,
+        contentType:"application/json;charset=utf-8",
+        data: JSON.stringify({
+            "id": courseId,
+            "name": courseName,
+            "desc": courseDesc
+        }),
+        success:function(message){
+            if (message.code == 0){
+                alert("课程更新成功！");
+                location.href="/courses";
+            } else if (message.code == 40001){
+                alert("课程 ID 不存在，更新失败！")
+            }else{
+                alert("课程更新失败～")
+            }
+        },
+        error:function(message){
+            $("request-process-patent").html("课程更新失败～")
+        }
+    });
+};
+</script>

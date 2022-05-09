@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}
+课程管理系统
+{% endblock%}
+
+{% block cource_active %}
+active
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h2>课程管理</h2>
+
+        <div class="blockquote-reverse">
+                <button
+                    type="button"
+                    class="btn btn-sm btn-success"
+                    onclick="addCourse()"
+                >
+                    新增
+                </button>
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>课程 ID</th>
+                    <th>课程名称</th>
+                    <th>课程说明</th>
+                    <th>操作</th>
+                </tr>
+
+                <tbody>
+                    {% for c in course_list %}
+                    <tr>
+                        <td>{{ c['id'] }}</td>
+                        <td>{{ c['name'] }}</td>
+                        <td>{{ c['desc'] }}</td>
+                        <td>
+                            <button
+                                    type="button"
+                                    class="btn btn-xs btn-warning"
+                                    onclick="updateCourse({{ c }})"
+                            >
+                                编辑
+                            </button>
+                            <button
+                                    type="button"
+                                    class="btn btn-xs btn-danger"
+                                    onclick="delCourse({{ c['id'] }})"
+                            >
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+function addCourse(){
+    console.log("addCourse");
+    location.href="addCourse"
+};
+
+function updateCourse(course_info){
+    console.log("updateCourse")
+    console.log(course_info['id'])
+    console.log(course_info['name'])
+    console.log(course_info['desc'])
+    location.href="editCourse/" + course_info['id'] + "/" + course_info['name']+ "/" + course_info['desc']
+};
+
+function delCourse(course_id){
+    console.log("delCourse")
+    console.log(course_id)
+    var r = window.confirm("确定要删除吗？")
+    if (r==true){
+        console.log("点击确定")
+         $.ajax({
+            url:"/courses",
+            type:"DELETE",
+            dataType:"json",
+            async:false,
+            contentType:"application/json;charset=utf-8",
+            data: JSON.stringify({
+                "id": course_id
+            }),
+            success:function(message){
+                if (message.code == 0){
+                    alert("ID 为 " + course_id + " 的课程删除成功！");
+                    location.reload();
+                } else if (message.code == 40001){
+                    alert("课程 ID 不存在，删除失败！")
+                }else{
+                    alert("课程删除失败～")
+                }
+            },
+            error:function(message){
+                $("request-process-patent").html("ID 为 " + course_id + " 的课程删除失败～");
+            }
+        })
+    }
+    else{
+        console.log("点击取消")
+    }
+}
+{% endblock %}

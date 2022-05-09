@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}课程管理系统{% endblock%}
+
+{% block cource_active %}
+active
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h2 class="">新增课程</h2>
+        <form class="form-horizontal" name="add_form">
+            <div class="form-group">
+
+                <label for="course_id" class="col-sm-2 control-label">课程 ID</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="course_id" name="course_id"
+                           placeholder="课程 ID">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="course_name" class="col-sm-2 control-label">课程名称</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="course_name" name="course_name"
+                           placeholder="请输入课程名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="course_desc" class="col-sm-2 control-label">课程说明</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="course_desc" name="course_desc"
+                           placeholder="请输入课程说明">
+                </div>
+            </div>
+        </form>
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-sm btn-success" onclick="addCourse()">添加</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+function addCourse(){
+    console.log("addCourse")
+    var courseId = document.getElementsByName("course_id")[0].value
+    console.log(courseId)
+    var courseName = document.getElementsByName("course_name")[0].value
+    console.log(courseName)
+    var courseDesc = document.getElementsByName("course_desc")[0].value
+    console.log(courseDesc)
+
+    $.ajax({
+        url:"/courses",
+        type:"POST",
+        dataType:"json",
+        async:false,
+        contentType:"application/json;charset=utf-8",
+        data: JSON.stringify({
+            "id": courseId,
+            "name": courseName,
+            "desc": courseDesc
+        }),
+        success:function(message){
+            console.log(message);
+            if (message.code == 0){
+                alert("课程添加成功！");
+                location.href="/courses";
+            } else if (message.code == 40001){
+                alert("课程 ID 重复，添加失败！")
+            }else{
+                alert("课程添加失败～")
+            }
+        },
+        error:function(message){
+            $("request-process-patent").html("课程添加失败～");
+        }
+    });
+};
+{% endblock %}

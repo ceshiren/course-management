@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}课程管理系统{% endblock%}
+
+{% block stu_active %}
+active
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h2>学员管理</h2>
+        <div class="blockquote-reverse">
+                <button
+                    type="button"
+                    class="btn btn-sm btn-success"
+                    onclick="addCourse()"
+                >
+                    新增
+                </button>
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>学员 ID</th>
+                    <th>姓名</th>
+                    <th>已选课程</th>
+                    <th>操作</th>
+                </tr>
+
+                <tbody>
+                    {% for s in stu_data %}
+                    <tr>
+                        <td>{{ s['stu_id'] }}</td>
+                        <td>{{ s['stu_name'] }}</td>
+                        <td>{{ s['selected_courses'] }}</td>
+
+                        <td>
+                            <button
+                                    type="button"
+                                    class="btn btn-xs btn-warning"
+                                    onclick="updateCourse({{ s }})"
+                            >
+                                编辑
+                            </button>
+                            <button
+                                    type="button"
+                                    class="btn btn-xs btn-danger"
+                                    onclick="delCourse({{ s['stu_id'] }})"
+                            >
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
